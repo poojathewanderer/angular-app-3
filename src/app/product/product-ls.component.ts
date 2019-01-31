@@ -10,6 +10,7 @@ import { ProductService } from '../product-service';
 export class ProductListComponent implements OnInit {
 
     products: Product[];
+    url = "http://localhost:8081/web-based-jquery-project-1/ProductControllerServlet";
 
     constructor(private ps: ProductService) {
 
@@ -21,7 +22,10 @@ export class ProductListComponent implements OnInit {
 
     getProducts(state) {
         
-        this.products = this.ps.retriveFromserver(state);
+        this.ps.retrieveFromServer(this.url +state).subscribe(
+            data => {
+                this.products =  data;
+            });
     }
 
 }  

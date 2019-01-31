@@ -1,21 +1,20 @@
 import { Product } from './product/product';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductService {
     products: Product[];
-    url = "http://localhost:8081/web-based-jquery-project-1/ProductControllerServlet";
 
     // injecting Angular's HttpClient API
     constructor(private http: HttpClient) {}
 
     sendToServer(product: Product) {
-        // Code to communicate with the server
+        // Code to communicate with the server 
     }
     
-    getProducts() : Product[]
-    {
+    getProducts() : Product[] {
         let p1=new Product(1,"lux",5,6);
         let p2=new Product(2,"cinthol",10,11);
         let p3=new Product(3,"dove",25,32);
@@ -27,11 +26,8 @@ export class ProductService {
     }
 
     // get products from server
-    retriveFromserver(state) : Product[] {
-         this.http.get<Product[]>(this.url+state).subscribe(
-            data => {
-                this.products =  data;
-            });
-        return this.products;
+    retrieveFromServer(url) : Observable <Product[]> {
+         return this.http.get<Product[]>(url);
     }
+    
 }
