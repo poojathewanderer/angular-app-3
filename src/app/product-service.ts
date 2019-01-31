@@ -27,6 +27,7 @@ export class ProductService {
 
     // get products from server
     retrieveFromServer(url) : Observable <Product[]> {
+        console.log('here'+ url);
          return this.http.get<Product[]>(url);
     }
     
