@@ -1,0 +1,21 @@
+<div class="align-middle">
+        <form #pform = "ngForm" (ngSubmit)="add(pform)">
+                ID <input [(ngModel)]='product.id' name='ID'><br/>
+                Name <input [(ngModel)]='product.name' name='name'><br/>
+                Price <input  [(ngModel)]='product.price' name='price'><br/>
+                Quantitiy <input  [(ngModel)]='product.quantity' name='quantity'>
+                <input type="submit" value="Add"/>
+        </form>
+
+        <!--
+        <form>
+                ID <input [(ngModel)]='product.id' name='ID'><br/>
+                Name <input [(ngModel)]='product.name' name='name'><br/>
+                Price <input  [(ngModel)]='product.price' name='price'><br/>
+                Quantitiy <input  [(ngModel)]='product.quantity' name='quantity'>
+                <input type="submit" value="Add" (click)="add()"/>
+        </form>
+        -->
+
+</div>
+
