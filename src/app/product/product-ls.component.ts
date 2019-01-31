@@ -3,7 +3,7 @@ import { Product } from './product'
 import { OnInit, Component } from '@angular/core'
 import { ProductService } from '../product-service';
 @Component({
-    selector: 'product',
+    selector: 'prod-list',
     templateUrl: './product-ls.component.html',
 
 })
@@ -19,8 +19,9 @@ export class ProductListComponent implements OnInit {
 
     }
 
-    add() {
-        this.products = this.ps.getProducts();
+    getProducts(state) {
+        
+        this.products = this.ps.retriveFromserver(state);
     }
 
 }  

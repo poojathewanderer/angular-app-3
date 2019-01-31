@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+// user-defined components 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-ls.component';
 import { AddProductComponent } from './product/add-product.component';
 
+// user-defined services
 import { ProductService } from './product-service';
 
 @NgModule({
@@ -18,12 +20,9 @@ import { ProductService } from './product-service';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot( [
-      {path: 'add-product', component: AddProductComponent},
-      {path: 'list-product', component: ProductListComponent}
-    ])
+    HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

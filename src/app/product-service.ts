@@ -1,11 +1,14 @@
 import { Product } from './product/product';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ProductService {
     products: Product[];
+    url = "http://localhost:8081/web-based-jquery-project-1/ProductControllerServlet";
 
-    constructor() {}
+    // injecting Angular's HttpClient API
+    constructor(private http: HttpClient) {}
 
     sendToServer(product: Product) {
         // Code to communicate with the server
@@ -20,6 +23,15 @@ export class ProductService {
         let p5=new Product(5,"medimix",23,8);
         this.products=[p1,p2,p3,p4,p5];
 
+        return this.products;
+    }
+
+    // get products from server
+    retriveFromserver(state) : Product[] {
+         this.http.get<Product[]>(this.url+state).subscribe(
+            data => {
+                this.products =  data;
+            });
         return this.products;
     }
 }

@@ -3,15 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-      <ul class="nav navbar-nav">
-      <li><a routerLink="/add-product">Add</a></li>
-      <li><a routerLink="/list-product">List</a></li>
-      
-      <router-outlet></router-outlet>
-      </ul>
-    </div>
-
-    
+          <prod-list></prod-list>
   `,
   styles: []
 })
